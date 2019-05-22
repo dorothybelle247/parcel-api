@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 body{
     background-color:#91A3B0;
 }
@@ -10,3 +11,12 @@ body{
 .navbar{
     background-color: #8A7F8D;
 }
+h4{
+    font-family: 'Permanent Marker', cursive;
+    color: #8A7F8D;
+}
+h5{
+    color: rgb(94, 94, 94);
+}
+
+

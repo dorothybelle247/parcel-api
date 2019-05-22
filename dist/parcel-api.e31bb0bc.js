@@ -104,10 +104,56 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"redditapi.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  search: function search() {}
+};
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _redditapi = _interopRequireDefault(require("./redditapi"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var searchForm = document.getElementById('search-form');
-var searchInput = document.getElementById(search - input);
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var searchInput = document.getElementById('search-input');
+searchForm.addEventListener('submit', function (e) {
+  // console.log(124);
+  var searchTerm = searchInput.value;
+  var sortBy = document.querySelector('input[name="sortby"]:checked').value;
+  var searchLimit = document.getElementById('limit').value;
+  console.log(searchLimit);
+
+  if (searchTerm === '') {
+    showMessage('search something', 'alert-danger');
+  }
+
+  searchInput.value = '';
+
+  _redditapi.default.search(searchTerm, searchLimit, sortBy);
+
+  e.preventDefault();
+});
+
+function showMessage(message, className) {
+  var div = document.createElement('div');
+  div.className = "alert ".concat(className);
+  div.appendChild(document.createTextNode(message));
+  var searchContainer = document.getElementById('search-container');
+  var search = document.getElementById('search');
+  searchContainer.insertBefore(div, search);
+  setTimeout(function () {
+    return document.querySelector('.alert').remove();
+  }, 2000);
+}
+},{"./redditapi":"redditapi.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -134,7 +180,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50878" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

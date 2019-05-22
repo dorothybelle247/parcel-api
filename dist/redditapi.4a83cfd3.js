@@ -112,7 +112,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  search: function search() {}
+  search: function search(searchTerm, searchLimit, sortBy) {
+    fetch("http://www.reddit.com/search.json?q=".concat(searchTerm)).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      return console.log(data);
+    });
+  }
 };
 exports.default = _default;
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -142,7 +148,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50878" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51023" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

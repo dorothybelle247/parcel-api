@@ -1,0 +1,8 @@
+{
+  "name": "Dorothy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dorothybelle247/parcel-api.git",
+  "author": "dorothybelle247 <dorothybelle247@gmail.com>",
+  "license": "MIT"
+}
